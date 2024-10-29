@@ -14,7 +14,7 @@ class Api::V1::PostsController < ApplicationController
 
     if @post.save # 作成したポストが保存できたら
       render json: @post,  status: :created # これで201番のステータスが返ってくる
-    else 
+    else
       render json: @post.errors, status: :unprocessable_entity # これで422番のエラーが返ってくる
     end
   end
@@ -24,7 +24,7 @@ class Api::V1::PostsController < ApplicationController
 
     if @post.update(post_params) # post_paramsのデータを含んだ更新が完了したら
       render json: @post
-    else 
+    else
       render json: @post.errors, status: :unprocessable_entity # これで422番のエラーが返ってくる
     end
   end
@@ -40,8 +40,4 @@ class Api::V1::PostsController < ApplicationController
   def post_params # titleとcontent、だけを許可するというパラメータを宣言
     params.require(:post).permit(:title, :content)
   end
-
-
-
-
 end
