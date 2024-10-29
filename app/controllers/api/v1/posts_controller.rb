@@ -4,7 +4,7 @@ class Api::V1::PostsController < ApplicationController
     render json: @posts # フロントでも扱えるように@postsというインスタンス変数がjson形式にする
   end
 
-  def show # 固有ページのアクション,コントローラ
+  def show # 記事の詳細ページ
     @post = Post.find(params[:id]) # 今見ているブログのidの情報を@postに入れることができる
     render json: @post
   end
